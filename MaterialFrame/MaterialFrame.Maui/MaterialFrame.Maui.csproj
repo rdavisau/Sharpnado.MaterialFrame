@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>net6.0;net6.0-ios;net6.0-android</TargetFrameworks>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>preview</LangVersion>
+        <UseMaui>true</UseMaui>
+        <PackageId>Sharpnado.MaterialFrame.net6</PackageId>
+        <Version>1.3.0</Version>
+        <PackOnBuild>true</PackOnBuild>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/roubachof/Sharpnado.MaterialFrame</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/roubachof/Sharpnado.MaterialFrame</RepositoryUrl>
+        <PackageTags>xamarin.forms android ios uwp netstandard blurview blur UIVisualEffectView acrylic dark mode frame blurred background AcrylicBrush</PackageTags>
+        <Title>A modern Xamarin.Forms Frame component supporting blur, acrylic, dark mode.</Title>
+        <Summary>A modern Xamarin.Forms Frame component supporting blur, acrylic, dark mode. Implemented with RealtimeBlurView on Android (custom blurview), UIVisualEffectView on iOS and AcrylicBrush on UWP.</Summary>
+        <PackageReleaseNotes>Add support for blur on uwp and macos windows by @mhrastegary77</PackageReleaseNotes>
+        <Owners></Owners>
+        <Authors>Jean-Marie Alfonsi</Authors>
+        <Copyright>Copyright 2020 Jean-Marie Alfonsi</Copyright>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Remove="**/android/*.cs" />
+        <Compile Remove="**/*android..cs" />
+        <Compile Remove="**/ios/*.cs" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <Folder Include="android/*.cs" Condition="'$(TargetFramework)' == 'net6.0-android'" />
+        <Folder Include="ios/*.cs" Condition="'$(TargetFramework)' == 'net6.0-ios'" />
+    </ItemGroup>
+    
+    <Target Name="GenerateCustomAssemblyInfo"></Target>
+
+</Project>

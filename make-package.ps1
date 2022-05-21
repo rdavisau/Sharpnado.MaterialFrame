@@ -5,6 +5,7 @@ $droidProject = ".\MaterialFrame\MaterialFrame.Android\MaterialFrame.Android.csp
 $iosProject = ".\MaterialFrame\MaterialFrame.iOS\MaterialFrame.iOS.csproj"
 $macOSProject = ".\MaterialFrame\MaterialFrame.macOS\MaterialFrame.macOS.csproj"
 $uwpProject = ".\MaterialFrame\MaterialFrame.UWP\MaterialFrame.UWP.csproj"
+$mauiProject = ".\MaterialFrame\MaterialFrame.Maui\MaterialFrame.Maui.csproj"
 
 $droidBin = ".\MaterialFrame\MaterialFrame.Android\bin\Release"
 $droidObj = ".\MaterialFrame\MaterialFrame.Android\obj\Release"
@@ -22,29 +23,6 @@ $replaceString = "`$1 $formsVersion `$3"
 
 rm *.txt
 
-echo "  deleting android bin-obj folders"
-rm -Force -Recurse $droidBin
-if ($LastExitCode -gt 0)
-{
-    echo "  Error deleting android bin-obj folders"
-    return
-}
-
-rm -Force -Recurse $droidObj
-if ($LastExitCode -gt 0)
-{
-    echo "  Error deleting android bin-obj folders"
-    return
-}
-
-echo "  cleaning Sharpnado.MaterialFrame solution"
-msbuild .\MaterialFrame\MaterialFrame.sln /t:Clean /p:Configuration=Release
-if ($LastExitCode -gt 0)
-{
-    echo "  Error while cleaning solution"
-    return
-}
-
 echo "  restoring Sharpnado.MaterialFrame solution"
 msbuild .\MaterialFrame\MaterialFrame.sln /t:Restore /p:Configuration=Release
 if ($LastExitCode -gt 0)
@@ -61,7 +39,10 @@ if ($LastExitCode -gt 0)
     return
 }
 
+echo "  building Sharpnado.MaterialFrame Maui project"
+dotnet build -c Release .\MaterialFrame\MaterialFrame.Maui
+
 $version = (Get-Item MaterialFrame\MaterialFrame\bin\Release\netstandard2.0\Sharpnado.MaterialFrame.dll).VersionInfo.FileVersion
 
 echo "  packaging Sharpnado.MaterialFrame.nuspec (v$version)"
-nuget pack .\Sharpnado.MaterialFrame.nuspec -Version $version
+nuget pack Sharpnado.MaterialFrame.nuspec -Version $version

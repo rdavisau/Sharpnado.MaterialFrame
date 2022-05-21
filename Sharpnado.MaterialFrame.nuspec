@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
 
-      <id>Sharpnado.MaterialFrame</id>
+      <id>Sharpnado.MaterialFrame.net6</id>
       <version>$version$</version>
       <copyright>Sharpnado 2021</copyright>
       <title>A modern Xamarin.Forms Frame component supporting blur, acrylic, dark mode.</title>
@@ -60,10 +60,10 @@ Mandatory initialization on UWP:
           <dependency id="Xamarin.Forms" version="4.5.0.356" exclude="Build,Analyzers" />
         </group>
 
-        <group targetFramework="uap10.0.16299">
-          <dependency id="Xamarin.Forms" version="4.5.0.356" exclude="Build,Analyzers"/>
-          <dependency id="Microsoft.UI.Xaml" version="2.3.191211002" />
-        </group>
+<!--        <group targetFramework="uap10.0.16299">-->
+<!--          <dependency id="Xamarin.Forms" version="4.5.0.356" exclude="Build,Analyzers"/>-->
+<!--          <dependency id="Microsoft.UI.Xaml" version="2.3.191211002" />-->
+<!--        </group>-->
 
         <group targetFramework="MonoAndroid10.0">
           <dependency id="Xamarin.Forms" version="4.5.0.356" exclude="Build,Analyzers"/>
@@ -74,6 +74,12 @@ Mandatory initialization on UWP:
     </metadata>
 
     <files>
+
+        <file src="MaterialFrame\MaterialFrame.Maui\bin\Release\net6.0-ios\MaterialFrame.Maui.dll" target="lib\net6.0-ios\Sharpnado.MaterialFrame.dll" />
+        <file src="MaterialFrame\MaterialFrame.Maui\bin\Release\net6.0-ios\MaterialFrame.Maui.pdb" target="lib\net6.0-ios\Sharpnado.MaterialFrame.pdb" />
+
+        <file src="MaterialFrame\MaterialFrame.Maui\bin\Release\net6.0-android\MaterialFrame.Maui.dll" target="lib\net6.0-android\Sharpnado.MaterialFrame.dll" />
+        <file src="MaterialFrame\MaterialFrame.Maui\bin\Release\net6.0-android\MaterialFrame.Maui.pdb" target="lib\net6.0-android\Sharpnado.MaterialFrame.pdb" />
 
         <!--Net Standard-->
         <file src="MaterialFrame\MaterialFrame\bin\Release\netstandard2.0\Sharpnado.MaterialFrame.dll" target="lib\netstandard2.0\Sharpnado.MaterialFrame.dll" />
@@ -98,11 +104,10 @@ Mandatory initialization on UWP:
         <file src="MaterialFrame\MaterialFrame.macOS\bin\Release\Sharpnado.MaterialFrame.pdb" target="lib\Xamarin.Mac\Sharpnado.MaterialFrame.pdb" />
 
         <!--Xamarin.UWP-->
-        <file src="MaterialFrame\MaterialFrame.UWP\bin\Release\Sharpnado.MaterialFrame.UWP.dll" target="lib\uap10.0.16299\Sharpnado.MaterialFrame.UWP.dll" />
-        <file src="MaterialFrame\MaterialFrame.UWP\bin\Release\Sharpnado.MaterialFrame.UWP.pdb" target="lib\uap10.0.16299\Sharpnado.MaterialFrame.UWP.pdb" />
-        <file src="MaterialFrame\MaterialFrame.UWP\bin\Release\Sharpnado.MaterialFrame.dll" target="lib\uap10.0.16299\Sharpnado.MaterialFrame.dll" />
-        <file src="MaterialFrame\MaterialFrame.UWP\bin\Release\Sharpnado.MaterialFrame.pdb" target="lib\uap10.0.16299\Sharpnado.MaterialFrame.pdb" />
-
+<!--        <file src="MaterialFrame\MaterialFrame.UWP\bin\Release\Sharpnado.MaterialFrame.UWP.dll" target="lib\uap10.0.16299\Sharpnado.MaterialFrame.UWP.dll" />-->
+<!--        <file src="MaterialFrame\MaterialFrame.UWP\bin\Release\Sharpnado.MaterialFrame.UWP.pdb" target="lib\uap10.0.16299\Sharpnado.MaterialFrame.UWP.pdb" />-->
+<!--        <file src="MaterialFrame\MaterialFrame.UWP\bin\Release\Sharpnado.MaterialFrame.dll" target="lib\uap10.0.16299\Sharpnado.MaterialFrame.dll" />-->
+<!--        <file src="MaterialFrame\MaterialFrame.UWP\bin\Release\Sharpnado.MaterialFrame.pdb" target="lib\uap10.0.16299\Sharpnado.MaterialFrame.pdb" />-->
 
         <!--Icon-->
         <file src="Docs\material_frame.png" target="images\" />
