@@ -1,10 +1,8 @@
-﻿using System;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Graphics;
+﻿using Xamarin.Forms;
 
 namespace Sharpnado.MaterialFrame
 {
-    public partial class MaterialFrame : Frame
+    public partial class MaterialFrame : Xamarin.Forms.Frame
     {
         public const int AcrylicElevation = 20;
 
@@ -44,9 +42,9 @@ namespace Sharpnado.MaterialFrame
 
         private const BlurStyle DefaultBlurStyle = BlurStyle.Light;
 
-        private static readonly Color DefaultLightThemeBackgroundColor = Colors.White;
+        private static readonly Color DefaultLightThemeBackgroundColor = Color.White;
 
-        private static readonly Color DefaultAcrylicGlowColor = Colors.White;
+        private static readonly Color DefaultAcrylicGlowColor = Color.White;
 
         // https://material.io/design/color/dark-theme.html#properties
         private static readonly Color[] DarkColors = new[]

@@ -5,9 +5,8 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <LangVersion>preview</LangVersion>
-        <UseMaui>true</UseMaui>
-        <PackageId>Sharpnado.MaterialFrame.net6</PackageId>
-        <Version>1.3.1</Version>
+        <PackageId>Sharpnado.MaterialFrame.net6xf</PackageId>
+        <Version>1.3.3</Version>
         <PackOnBuild>true</PackOnBuild>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageProjectUrl>https://github.com/roubachof/Sharpnado.MaterialFrame</PackageProjectUrl>
@@ -32,14 +31,16 @@
         <Folder Include="android/*.cs" Condition="'$(TargetFramework)' == 'net6.0-android'" />
         <Folder Include="ios/*.cs" Condition="'$(TargetFramework)' == 'net6.0-ios'" />
     </ItemGroup>
-    
-    <ItemGroup Condition=" '$(TargetFramework)' == 'net6.0-ios' Or '$(TargetFramework)' == 'net6.0-android' or '$(TargetFramework)' == 'net6.0'">
-        <PackageReference Include="Microsoft.Maui.Dependencies" Version="$(MauiVersion)">
-            <PrivateAssets>All</PrivateAssets>
-        </PackageReference>
-        <PackageReference Include="Microsoft.Maui.Extensions" Version="$(MauiVersion)">
-            <PrivateAssets>All</PrivateAssets>
-        </PackageReference>
+
+    <ItemGroup>
+        <PackageReference Include="Xamarin.Forms" Version="5.0.0.2516" />
+    </ItemGroup>
+
+    <ItemGroup Condition=" '$(TargetFramework)' == 'net6.0-android'">
+        <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.4.1.1" />
+        <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.4.0.1" />
+        <PackageReference Include="Xamarin.Google.Android.Material" Version="1.6.0" />
+        <PackageReference Include="Xamarin.AndroidX.Navigation.UI" Version="2.4.2" />
     </ItemGroup>
 
     <Target Name="GenerateCustomAssemblyInfo"></Target>

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
 
-      <id>Sharpnado.MaterialFrame.net6</id>
+      <id>Sharpnado.MaterialFrame.netxf</id>
       <version>$version$</version>
       <copyright>Sharpnado 2021</copyright>
       <title>A modern Xamarin.Forms Frame component supporting blur, acrylic, dark mode.</title>
